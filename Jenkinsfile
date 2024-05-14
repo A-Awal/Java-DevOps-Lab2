@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage('run') {
+    stage('build') {
       steps {
         sh 'docker build --build-arg JAR_FILE=target/*.war -t myapp .'
       }
