@@ -5,9 +5,7 @@ pipeline {
       steps {
       sh '''echo $MAVEN_HOME'''
       }
-      steps {
-      sh '''$MAVEN_HOME/mvn install'''
-      }
+     
     }
 
     stage('build') {
