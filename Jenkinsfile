@@ -3,9 +3,8 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-      sh '''echo $MAVEN_HOME'''
+        sh 'echo $MAVEN_HOME'
       }
-     
     }
 
     stage('build') {
