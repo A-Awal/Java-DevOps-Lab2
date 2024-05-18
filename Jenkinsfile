@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        sh '''cd Lab2
-'''
+      sh '''echo $MAVEN_HOME'''
+      }
+      steps {
+      sh '''$MAVEN_HOME/mvn install'''
       }
     }
 
