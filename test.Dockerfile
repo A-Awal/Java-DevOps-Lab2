@@ -12,4 +12,4 @@ RUN ["chmod", "+x", "/scripts/runtest.sh"]
 
 #run test
 
-ENTRYPOINT ["/scripts/runtest.sh"]
+ENTRYPOINT ["./scripts/runtest.sh"]
