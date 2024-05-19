@@ -1,9 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Run Tests') {
+    stage('Build Test') {
       steps {
         sh 'docker build -f ./test.Dockerfile -t "lab2-test" .'
+      }
+    }
+
+    stage('Run Tests') {
+      steps {
+        sh 'docker run -p 8080:8080 lab2-test'
       }
     }
 
@@ -15,7 +21,7 @@ pipeline {
 
     stage('Run App') {
       steps {
-        sh ' docker run -p 8080:8080 lab2-pro'
+        sh ' docker run -p 5000:8080 lab2-pro'
       }
     }
 
