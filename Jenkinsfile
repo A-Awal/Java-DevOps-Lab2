@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-      ba '''echo %MAVEN_HOME%'''
+        sh 'echo $MAVEN_HOME'
       }
     }
 
