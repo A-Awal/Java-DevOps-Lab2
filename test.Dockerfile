@@ -5,11 +5,12 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 COPY runtest.sh /scripts/runtest.sh
-RUN mvn clean package -DskipTests
+RUN mvn test
 
-RUN ["chmod", "+x", "/scripts/runtest.sh"]
+# RUN mvn 
+# RUN ["chmod", "+x", "/scripts/runtest.sh"]
 
 
 #run test
 
-RUN  ["mvn test"]
+# ENTRYPOINT ["/scripts/runtest.sh"]
