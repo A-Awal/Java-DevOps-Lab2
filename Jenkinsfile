@@ -13,11 +13,11 @@ pipeline {
       }
     }
 
-    stage('Run App') {
-      steps {
-        sh ' docker run -p 8080:8080 lab2-pro'
-      }
-    }
+    // stage('Run App') {
+    //   steps {
+    //     sh ' docker run -p 8080:8080 lab2-pro'
+    //   }
+    // }
 
 
     
