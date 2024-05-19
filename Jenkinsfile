@@ -1,17 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout Code') {
+    stage('Run Tests') {
       steps {
-        sh 'echo $MAVEN_HOME'
+        ba 'docker build -f ./test.Dockerfile -t "lab2-test" .'
       }
     }
 
-    stage('build') {
+    stage('Build App') {
       steps {
-        ba 'docker build --build-arg JAR_FILE=target/*.war -t myapp .'
+        ba 'docker build -f ./production.Dockerfile -t "lab2-pro" .'
       }
     }
+
+    stage('Run App') {
+      steps {
+        ba ' docker run -p 8080:8080 lab2-pro'
+      }
+    }
+
+
+    
 
   }
 }
