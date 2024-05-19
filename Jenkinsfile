@@ -15,7 +15,7 @@ pipeline {
 
     stage('Run App') {
       steps {
-        sh ' docker run -p 5000:8080 lab2-pro'
+        sh ' docker run -p 8080:8080 lab2-pro'
       }
     }
 
