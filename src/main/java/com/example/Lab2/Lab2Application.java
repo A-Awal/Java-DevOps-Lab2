@@ -11,7 +11,7 @@ public class Lab2Application {
 
 	@GetMapping("test")
 	public String GetResult(){
-		return "Hello";
+		return "Hello moto";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(Lab2Application.class, args);
