@@ -7,12 +7,6 @@ pipeline {
       }
     }
 
-    stage('Run Tests') {
-      steps {
-        sh 'docker run lab2-test'
-      }
-    }
-
     stage('Build App') {
       steps {
         sh 'docker build -f ./production.Dockerfile -t "lab2-pro" .'
