@@ -13,11 +13,11 @@ pipeline {
       }
     }
 
-    stage('Run App') {
-      steps {
-        sh 'docker-compose up'
-      }
-    }
+    // stage('Run App') {
+    //   steps {
+    //     sh ' docker-compose'
+    //   }
+    // }
 
 
     
