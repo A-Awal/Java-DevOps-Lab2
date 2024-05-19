@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  lab2-service:
+    build: 
+      context: .
+      dockerfile: production.Dockerfile
+    container_name: lab2-pro
+    ports:
+    - 5001:8080
