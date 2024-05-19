@@ -40,6 +40,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                    <image>
+                        <name>lab2-image</name>
+                    </image>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
