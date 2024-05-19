@@ -9,7 +9,7 @@ pipeline {
 
     stage('Run Tests') {
       steps {
-        sh 'docker run -p 8080:8080 lab2-test'
+        sh 'docker run lab2-test'
       }
     }
 
