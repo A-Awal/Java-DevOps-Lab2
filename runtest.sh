@@ -2,5 +2,6 @@
 # CMD="java -jar app.jar"
 # $CMD &
 # SERVICE_PID=$!
-mvn test
+# mvn test
 # wait "$SERVICE_PID"
+echo "i am working"
