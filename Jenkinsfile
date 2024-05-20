@@ -25,11 +25,11 @@ pipeline {
         }
 
         stage('containerize'){
-            when{
-              expression{ 
-                params.CONTAINERIZE == true
-              }            
-            }
+            // when{
+            //   expression{ 
+            //     params.CONTAINERIZE == true
+            //   }            
+            // }
 
             steps{
               sh 'mvn spring-boot:build-image'
