@@ -1,8 +1,10 @@
 pipeline {
     agent any
-    // options {
-    //     skipStagesAfterUnstable()
-    // }
+    parameters{
+    booleanParam(name:"CONTAINERIZE", default:true, description:'')
+
+  }
+
     tools{
     maven 'Maven'
   }
@@ -22,12 +24,24 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') { 
-            steps {
-                sh "chmod +x ./runtest.sh"
-                sh './runtest.sh' 
+
+        stage("containerize"){
+            when{
+              expression(
+                CONTAINERIZE == true
+              )
+            }
+            steps{
+            sh 'mvn spring-boot:build-image'
             }
         }
+        // stage('Deliver') { 
+        //     steps {
+          
+        //         sh "chmod +x ./runtest.sh"
+        //         sh './runtest.sh' 
+        //     }
+        // }
     }
 }
 
