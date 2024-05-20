@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    // parameters {
-    // booleanParam(name:"CONTAINERIZE", default:true, description:'')
-    // }
 
     tools{
     maven 'Maven'
+    }
+    parameters {
+    booleanParam(name:"CONTAINERIZE", default:true, description:'')
     }
     stages {
         stage('Build') {
@@ -24,12 +24,12 @@ pipeline {
             }
         }
 
-        stage("containerize"){
-            // when{
-            //   expression{ 
-            //     params.CONTAINERIZE == true
-            //   }            
-            // }
+        stage('containerize'){
+            when{
+              expression{ 
+                params.CONTAINERIZE == true
+              }            
+            }
 
             steps{
               sh 'mvn spring-boot:build-image'
