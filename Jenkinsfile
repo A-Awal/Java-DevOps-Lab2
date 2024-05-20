@@ -27,17 +27,16 @@ pipeline {
 
         stage("containerize"){
             when{
-              expression(
+              expression{ 
                 CONTAINERIZE == true
-              )
-            }
+              }            }
             steps{
             sh 'mvn spring-boot:build-image'
             }
         }
         // stage('Deliver') { 
         //     steps {
-          
+
         //         sh "chmod +x ./runtest.sh"
         //         sh './runtest.sh' 
         //     }
