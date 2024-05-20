@@ -4,18 +4,17 @@ pipeline {
     //     skipStagesAfterUnstable()
     // }
     tools{
-    Maven 'mvn'
-    
+    maven 'Maven'
   }
     stages {
         stage('Build') {
             steps {
-              mvn -B -DskipTests clean package
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                mvn test
+                sh 'mvn test'
             }
             post {
                 always {
