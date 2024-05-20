@@ -4,9 +4,9 @@ pipeline {
     tools{
     maven 'Maven'
     }
-    parameters {
-    booleanParam(name:"CONTAINERIZE", default:true, description:'')
-    }
+    // parameters {
+    // booleanParam(name:"CONTAINERIZE", default:true, description:'dhdh')
+    // }
     stages {
         stage('Build') {
             steps {
