@@ -34,7 +34,7 @@ pipeline {
         stage('containerize'){
             when{
               expression{ 
-                env.CONTAINERIZE == true
+                params.CONTAINERIZE == true
               }            
             }
 
