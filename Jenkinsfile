@@ -6,8 +6,8 @@ pipeline {
     }
     environment{
     NEW_VERSION = "2.1.0"
-    SERVER_CREDENTIAL = credentials('')
-  }
+    SERVER_CREDENTIAL = credentials('test')
+    }
 
     // parameters {
     // booleanParam(name:"CONTAINERIZE", default:true, description:'dhdh')
@@ -16,6 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh "echo ${SERVER_CREDENTIAL}"
             }
         }
         stage('Test') {
