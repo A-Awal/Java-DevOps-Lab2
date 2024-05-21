@@ -4,6 +4,11 @@ pipeline {
     tools{
     maven 'Maven'
     }
+    environment{
+    NEW_VERSION = "2.1.0"
+    SERVER_CREDENTIAL = credentials('')
+  }
+
     // parameters {
     // booleanParam(name:"CONTAINERIZE", default:true, description:'dhdh')
     // }
