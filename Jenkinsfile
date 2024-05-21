@@ -4,20 +4,20 @@ pipeline {
     tools{
     maven 'Maven'
     }
-    // environment{
-    //   NEW_VERSION = "2.1.0"
-    //   SERVER_CREDENTIAL = credentials('test')
-    // }
+    environment{
+      NEW_VERSION = "2.1.0"
+      SERVER_CREDENTIAL = credentials('test')
+    }
 
     parameters {
-    booleanParam(name:"CONTAINERIZE", defaultValue:true, description:'dhdh')
+    booleanParam(name:"CONTAINERIZE", defaultValue:true, description:'Yes! if you want to build a docker image')
     }
     stages {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                // sh "echo ${env.SERVER_CREDENTIAL}"
-                // sh "echo ${env.NEW_VERSION}"
+                sh "echo ${SERVER_CREDENTIAL}"
+                sh "echo ${NEW_VERSION}"
             }
         }
         stage('Test') {
