@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     agent { docker { image 'docker:dind' } }
     stages {
         stage('build') {
