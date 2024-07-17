@@ -3,7 +3,7 @@ ipeline {
     stages {
         stage('build') {
             steps {
-                sh 'docker ps'
+                docker ps
             }
         }
     }
