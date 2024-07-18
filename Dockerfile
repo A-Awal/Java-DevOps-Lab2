@@ -8,10 +8,10 @@ FROM base AS test
 RUN --mount=type=cache,target=/mnt/Users/AbdulaiAwal/.m2 \
     mvn test
 
-FROM base As build
+FROM base AS build
 RUN --mount=type=cache,target=/mnt/Users/AbdulaiAwal/.m2 \
    mvn package -DskipTests
 
 FROM eclipse-temurin:21-jdk-jammy AS production
-COPY --from=build app/target/JavaLab3-0.0.1-SNAPSHOT.war .
-CMD ["java", "-jar", "JavaLab3-0.0.1-SNAPSHOT.war"]
+COPY --from=build app/target/Lab2-0.0.1-SNAPSHOT.war .
+CMD ["java", "-jar", "Lab2-0.0.1-SNAPSHOT.war"]
