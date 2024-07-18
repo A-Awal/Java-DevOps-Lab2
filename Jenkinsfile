@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                sh 'echo ${SERVER_CREDENTIAL}'
+                sh "echo ${SERVER_CREDENTIAL}"
                 sh "echo ${NEW_VERSION}"
             }
         }
