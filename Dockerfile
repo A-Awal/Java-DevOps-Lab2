@@ -12,6 +12,6 @@ FROM base As build
 RUN --mount=type=cache,target=/mnt/Users/AbdulaiAwal/.m2 \
    mvn package -DskipTests
 
-FROM eclipse-temurin:21-jdk-jammy AS build-production
+FROM eclipse-temurin:21-jdk-jammy AS production
 COPY --from=build app/target/JavaLab3-0.0.1-SNAPSHOT.war .
 CMD ["java", "-jar", "JavaLab3-0.0.1-SNAPSHOT.war"]

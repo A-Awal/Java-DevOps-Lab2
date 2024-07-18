@@ -15,20 +15,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
-                sh "echo ${SERVER_CREDENTIAL}"
-                sh "echo ${NEW_VERSION}"
+                sh 'docker build --tag=lab2-build  --target=build .'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'docker build --tag=lab2-test  --target=test .'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+            
         }
 
         stage('containerize'){
@@ -39,7 +33,7 @@ pipeline {
             }
 
             steps{
-              sh 'mvn spring-boot:build-image'
+              sh 'docker build --tag=lab2-prod  --target=production .'
             }
         }
         // stage('Deliver') {
@@ -72,6 +66,8 @@ pipeline {
 //     stage('Build Test') {
 //       steps {
 //         sh 'docker build -f ./test.Dockerfile -t "lab2-test" .'
+            // sh "echo ${SERVER_CREDENTIAL}"
+            // sh "echo ${NEW_VERSION}"
 //       }
 //     }
 
