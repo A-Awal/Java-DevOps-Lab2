@@ -1,18 +1,3 @@
-// pipeline {
-//     agent any
-
-//      tools{
-//         maven 'maven'
-//     }
-//     stages{
-//         stage("hello"){
-//             steps{
-//                 sh "echo hello"
-//             }
-            
-//         }
-//     }
-// }
 pipeline {
     agent any
 
