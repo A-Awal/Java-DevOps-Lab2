@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools{
-    maven 'Maven'
+    maven 'maven'
     }
     // environment{
     //   NEW_VERSION = "2.1.0"
