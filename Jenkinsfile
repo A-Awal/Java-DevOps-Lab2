@@ -13,7 +13,13 @@ pipeline {
     booleanParam(name:"CONTAINERIZE", defaultValue:true, description:'Yes! if you want to build a docker image')
     }
     stages {
-        
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+                sh "echo ${SERVER_CREDENTIAL}"
+                sh "echo ${NEW_VERSION}"
+            }
+        }
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -24,14 +30,6 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-                sh "echo ${SERVER_CREDENTIAL}"
-                sh "echo ${NEW_VERSION}"
-            }
-        }
-        
 
         stage('containerize'){
             when{
