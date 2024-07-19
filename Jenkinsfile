@@ -13,16 +13,22 @@ pipeline {
     booleanParam(name:"CONTAINERIZE", defaultValue:true, description:'Yes! if you want to build a docker image')
     }
     stages {
-        stage('Build') {
+         stage('Build') {
             steps {
-                sh 'docker build --tag=lab2-build  --target=build .'
+                sh 'mvn -B -DskipTests clean package'
+                sh "echo ${SERVER_CREDENTIAL}"
+                sh "echo ${NEW_VERSION}"
             }
         }
         stage('Test') {
             steps {
-                sh 'docker build --tag=lab2-test  --target=test .'
+                sh 'mvn test'
             }
-            
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
 
         stage('containerize'){
