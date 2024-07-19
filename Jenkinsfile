@@ -44,7 +44,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh "docker run -d --name lab2 lab2-prod"
+                sh "docker run -d -p 5000:8080 --name lab2 lab2-prod"
             }
         }
     }
