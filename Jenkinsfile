@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('containerize'){
+        stage('Containerize'){
             when{
               expression{
                 params.CONTAINERIZE == true
@@ -42,13 +42,11 @@ pipeline {
               sh 'docker build --tag=lab2-prod  --target=production .'
             }
         }
-        // stage('Deliver') {
-        //     steps {
-
-        //         sh "chmod +x ./runtest.sh"
-        //         sh './runtest.sh'
-        //     }
-        // }
+        stage('Deliver') {
+            steps {
+                sh "docker run -d --name lab2 lab2-prod"
+            }
+        }
     }
 }
 
